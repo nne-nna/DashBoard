@@ -23,4 +23,27 @@
             @apply bg-blue-500 text-slate-50 dark:bg-blue-600;
         }
     }
+
+    .title {
+        @apply text-3xl font-semibold text-slate-900 transition-colors dark:text-slate-50;
+    }
+
+    .btn-ghost {
+        @apply flex h-10 flex-shrink-0 items-center justify-center gap-x-2 rounded-lg p-2 text-slate-400 transition-colors hover:bg-blue-50 hover:text-slate-500 dark:hover:bg-blue-950 dark:hover:text-slate-300;
+    }
+    .input {
+        @apply hidden h-10 flex-shrink-0 items-center gap-x-2 rounded-lg border border-slate-300 px-2 text-base text-slate-900 transition-colors has-[input:focus]:border-blue-500 md:flex md:w-auto lg:w-80 dark:border-slate-700 dark:text-slate-50 dark:focus:border-blue-600;
+    }
+    .card {
+        @apply flex flex-col gap-y-4 rounded-lg border border-slate-300 bg-white p-4 transition-colors dark:border-slate-700 dark:bg-slate-900;
+    }
+    .card-header {
+        @apply flex items-center gap-x-2;
+    }
+    .card-title {
+        @apply font-medium text-slate-900 transition-colors dark:text-slate-50;
+    }
+    .card-body {
+        @apply flex flex-col gap-y-2 rounded-lg p-4;
+    }
 }
