@@ -44,7 +44,7 @@
         @apply flex items-center gap-x-2;
     }
     .card-title {
-        @apply font-medium text-slate-900 transition-colors dark:text-slate-50;
+        @apply font-medium text-slate-900 transition-colors dark:text-slate-100;
     }
     .card-body {
         @apply flex flex-col gap-y-2 rounded-lg p-4;
