@@ -47,7 +47,7 @@
         @apply font-medium text-slate-900 transition-colors dark:text-slate-50;
     }
     .card-body {
-        @apply flex flex-col gap-y-2 rounded-lg p-4;
+        @apply flex flex-col gap-y-2 rounded-lg p-6;
     }
 
     .table {
