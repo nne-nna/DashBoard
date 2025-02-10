@@ -6,7 +6,6 @@ import logoDark from "../assets/logo-dark.svg";
 import { cn } from "../utils/cn";
 import PropTypes from "prop-types";
 
-
 export const SideBar = forwardRef(({ collapsed }, ref) => {
     return <aside ref={ref} className={cn
         (
@@ -57,7 +56,7 @@ export const SideBar = forwardRef(({ collapsed }, ref) => {
 
     </aside>;
 });
- 
+
 SideBar.displayName = "SideBar";
 
 SideBar.propTypes = {
