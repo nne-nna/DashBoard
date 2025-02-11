@@ -3,6 +3,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Layout from './routes/Layout'
 import DashboardPage from './routes/dashboard/Page';
+import Analytics from './routes/Analytics';
+import ReportsPage from './routes/ReportsPage';
+import CustomersPage from './routes/CustomersPage';
+import NewCustomersPage from './routes/NewCustomersPage';
+import VerifiedCustomersPage from './routes/VerifiedCustomersPage';
+import ProductsPage from './routes/ProductsPage';
+import NewProductPage from './routes/NewProductPage';
+import InventoryPage from './routes/InventoryPage';
+import { Settings } from 'lucide-react';
+import SettingsPage from './routes/SettingsPage';
 
 function App () {
   
@@ -17,39 +27,39 @@ function App () {
         },
         {  
           path: 'analytics',
-          element: <h1 className='title'>Analytics</h1>
+          element: <Analytics />,
         },
         {  
           path: 'reports',
-          element: <h1 className='title'>Reports</h1>
+          element: <ReportsPage />,
         },
         {  
           path: 'customers',
-          element: <h1 className='title'>Customers</h1>
+          element: <CustomersPage />,
         },
         {  
           path: 'new-customer',
-          element: <h1 className='title'>New Customer</h1>
+          element: <NewCustomersPage />,
         },
         {  
           path: 'verified-customers',
-          element: <h1 className='title'>Verified Customers</h1>
+          element: <VerifiedCustomersPage />,
         },
         {  
           path: 'products',
-          element: <h1 className='title'>Products</h1>
+          element: <ProductsPage />,
         },
         {  
           path: 'new-product',
-          element: <h1 className='title'>New Product</h1>
+          element: <NewProductPage />,
         },
         {  
           path: 'inventory',
-          element: <h1 className='title'>Inventory</h1>
+          element: <InventoryPage />,
         },
         {  
           path: 'settings',
-          element: <h1 className='title'>Settings</h1>
+          element: < SettingsPage />
         },
       ],
     },
