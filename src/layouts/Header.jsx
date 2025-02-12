@@ -35,7 +35,6 @@ export const Header = ({ collapsed, setCollapsed }) => {
 
     const handleSearch = (e) => {
         setSearchValue(e.target.value);
-        // You can implement search logic here
     };
 
     const markAllAsRead = () => {

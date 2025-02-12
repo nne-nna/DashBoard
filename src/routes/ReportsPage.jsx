@@ -27,7 +27,7 @@ const categoryData = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const ReportsPage = () => {
-  // Calculate total values for summary cards
+
   const totalRevenue = salesData.reduce((sum, item) => sum + item.revenue, 0);
   const totalExpenses = salesData.reduce((sum, item) => sum + item.expenses, 0);
   const totalProfit = salesData.reduce((sum, item) => sum + item.profit, 0);

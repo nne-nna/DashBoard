@@ -28,7 +28,7 @@ const customerSegments = [
 ];
 
 const Analytics = () => {
-    // Rest of the component remains the same
+
     return (
         <div className="flex flex-col gap-y-4 p-4">
           <h1 className="text-2xl font-bold text-black dark:text-white">Analytics Overview</h1>
