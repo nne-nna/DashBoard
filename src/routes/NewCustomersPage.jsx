@@ -4,18 +4,18 @@ import { Save, X, Upload } from 'lucide-react';
 const NewCustomersPage = () => {
   return (
     <div className="flex flex-col gap-y-4 p-4">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Add New Customer</h1>
-        <div className="flex gap-2">
-          <button className="flex items-center gap-x-2 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
-            <Save size={18} />
-            Save Customer
-          </button>
-          <button className="flex items-center gap-x-2 rounded-lg border bg-white px-4 py-2 text-gray-700 hover:bg-gray-50 dark:bg-slate-800 dark:text-gray-200 dark:hover:bg-slate-700">
-            <X size={18} />
-            Cancel
-          </button>
-        </div>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Add New Customer</h1>
+          <div className="flex flex-col sm:flex-row gap-2">
+              <button className="flex items-center justify-center gap-x-2 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
+                  <Save size={18} />
+                  Save Customer
+              </button>
+              <button className="flex items-center justify-center gap-x-2 rounded-lg border bg-white px-4 py-2 text-gray-700 hover:bg-gray-50 dark:bg-slate-800 dark:text-gray-200 dark:hover:bg-slate-700">
+                  <X size={18} />
+                  Cancel
+              </button>
+          </div>
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

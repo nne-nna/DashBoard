@@ -15,24 +15,24 @@ const ProductsPage = () => {
             <h1 className="title">Products</h1>
             
             <div className="card">
-                <div className="card-header flex justify-between">
-                    <div className="flex items-center gap-x-3">
-                        <div className="rounded-lg bg-blue-500/20 p-2 text-blue-500">
-                            <Package size={26} />
-                        </div>
-                        <p className="card-title">All Products</p>
+            <div className="card-header flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
+                <div className="flex items-center gap-x-3">
+                    <div className="rounded-lg bg-blue-500/20 p-2 text-blue-500">
+                        <Package size={26} />
                     </div>
-                    <div className="relative">
-                        <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
-                        <input
-                            type="text"
-                            placeholder="Search products..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="h-10 rounded-lg border border-slate-300 pl-8 pr-4 text-sm focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
-                        />
-                    </div>
+                    <p className="card-title">All Products</p>
                 </div>
+                <div className="relative w-full sm:w-auto">
+                    <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+                    <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full h-10 rounded-lg border border-slate-300 pl-8 pr-4 text-sm focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
+                    />
+                </div>
+        </div>
                 <div className="card-body p-0">
                     <div className="relative h-[500px] w-full overflow-auto [scrollbar-width:_thin]">
                         <table className="table">
