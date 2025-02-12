@@ -6,11 +6,11 @@ import {
 import { Search, UserPlus, Filter, Download, ChevronUp, ChevronDown } from 'lucide-react';
 
 const customerData = [
-  { id: 1, name: "John Doe", email: "john@example.com", status: "Active", orders: 15, spent: 1200 },
-  { id: 2, name: "Jane Smith", email: "jane@example.com", status: "Active", orders: 8, spent: 750 },
-  { id: 3, name: "Robert Johnson", email: "robert@example.com", status: "Inactive", orders: 3, spent: 300 },
-  { id: 4, name: "Emily Brown", email: "emily@example.com", status: "Active", orders: 12, spent: 980 },
-  { id: 5, name: "Michael Wilson", email: "michael@example.com", status: "Active", orders: 20, spent: 1500 },
+  { id: 1, name: "Tobias Renshaw", email: "tobias.renshaw@mailnest.com", status: "Active", orders: 15, spent: 1200 },
+  { id: 2, name: "Amara Obiano", email: "amara.obiano@netpost.io", status: "Active", orders: 8, spent: 750 },
+  { id: 3, name: "Elliot Grayson", email: " elliot.g@inboxnow.com", status: "Inactive", orders: 3, spent: 300 },
+  { id: 4, name: "Emily Brown", email: "emily@mailnest.com", status: "Active", orders: 12, spent: 980 },
+  { id: 5, name: "Sienna Patel", email: "sienna.patel@fastmailer.com", status: "Active", orders: 20, spent: 1500 },
 ];
 
 const growthData = [

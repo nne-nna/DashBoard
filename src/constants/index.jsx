@@ -11,6 +11,13 @@ import  ProductImage6 from "@/assets/product-image7.png";
 import  ProductImage7 from "@/assets/product-image8.png";
 import  ProductImage8 from "@/assets/product-image9.png";
 import  ProductImage9 from "@/assets/product-image10.png";
+import  SalesImage1 from "@/assets/sales-image1.jpg";
+import  SalesImage2 from "@/assets/sales-image2.jpg";
+import  SalesImage3 from "@/assets/sales-image3.jpg";
+import  SalesImage4 from "@/assets/sales-image4.jpg";
+import  SalesImage5 from "@/assets/sales-image5.jpg";
+import  SalesImage6 from "@/assets/sales-image6.jpg";
+import  SalesImage7 from "@/assets/sales-image7.jpg";
 
 export const navbarLinks = [
     {
@@ -141,49 +148,49 @@ export const recentSalesData = [
         id: 1,
         name: "Olivia Martin",
         email: "olivia.martin@email.com",
-        image: ProfileImage,
+        image: SalesImage1,
         total: 1500,
     },
     {
         id: 2,
         name: "James Smith",
         email: "james.smith@email.com",
-        image: ProfileImage,
+        image: SalesImage2,
         total: 2000,
     },
     {
         id: 3,
-        name: "Sophia Brown",
+        name: "Charles Brown",
         email: "sophia.brown@email.com",
-        image: ProfileImage,
+        image: SalesImage3,
         total: 4000,
     },
     {
         id: 4,
-        name: "Noah Wilson",
+        name: "Erica Wilson",
         email: "noah.wilson@email.com",
-        image: ProfileImage,
+        image: SalesImage4,
         total: 3000,
     },
     {
         id: 5,
         name: "Emma Jones",
         email: "emma.jones@email.com",
-        image: ProfileImage,
+        image: SalesImage5,
         total: 2500,
     },
     {
         id: 6,
         name: "William Taylor",
         email: "william.taylor@email.com",
-        image: ProfileImage,
+        image: SalesImage6,
         total: 4500,
     },
     {
         id: 7,
-        name: "Isabella Johnson",
+        name: "David Johnson",
         email: "isabella.johnson@email.com",
-        image: ProfileImage,
+        image: SalesImage7,
         total: 5300,
     },
 ];

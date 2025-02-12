@@ -4,8 +4,8 @@ import { Search, Filter, Download, CheckCircle, Clock, Mail } from 'lucide-react
 const verifiedCustomers = [
   {
     id: 1,
-    name: "John Doe",
-    email: "john@example.com",
+    name: "Tobias Renshaw", 
+    email: "tobias.renshaw@mailnest.com",
     verifiedDate: "2024-01-15",
     lastPurchase: "2024-02-01",
     totalSpent: "$2,450",
@@ -14,7 +14,7 @@ const verifiedCustomers = [
   {
     id: 2,
     name: "Sarah Johnson",
-    email: "sarah@example.com",
+    email: "sarah@mailnest.com",
     verifiedDate: "2024-01-20",
     lastPurchase: "2024-02-05",
     totalSpent: "$1,890",
@@ -23,7 +23,7 @@ const verifiedCustomers = [
   {
     id: 3,
     name: "Michael Brown",
-    email: "michael@example.com",
+    email: "michael@mailnest.com",
     verifiedDate: "2024-01-25",
     lastPurchase: "2024-02-10",
     totalSpent: "$3,200",
@@ -32,7 +32,7 @@ const verifiedCustomers = [
   {
     id: 4,
     name: "Emma Wilson",
-    email: "emma@example.com",
+    email: "emma@mailnest.com",
     verifiedDate: "2024-02-01",
     lastPurchase: "2024-02-15",
     totalSpent: "$1,750",
@@ -40,8 +40,8 @@ const verifiedCustomers = [
   },
   {
     id: 5,
-    name: "David Lee",
-    email: "david@example.com",
+    name: "David Patel",
+    email: "david@mailnest.com",
     verifiedDate: "2024-02-05",
     lastPurchase: "2024-02-20",
     totalSpent: "$2,100",
