@@ -11,7 +11,6 @@ import VerifiedCustomersPage from './routes/VerifiedCustomersPage';
 import ProductsPage from './routes/ProductsPage';
 import NewProductPage from './routes/NewProductPage';
 import InventoryPage from './routes/InventoryPage';
-import { Settings } from 'lucide-react';
 import SettingsPage from './routes/SettingsPage';
 
 function App () {

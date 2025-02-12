@@ -1,7 +1,16 @@
 import { ChartColumn, Home, NotepadText, Package, PackagePlus, Settings, ShoppingBag, UserCheck, UserPlus, Users } from "lucide-react";
 
 import ProfileImage from "@/assets/profile-image.jpg";
-import ProductImage from "@/assets/product-image.jpg";
+import  ProductImage from "@/assets/product-image1.jpg";
+import  ProductImage1 from "@/assets/product-image2.jpg";
+import  ProductImage2 from "@/assets/product-image3.jpg";
+import  ProductImage3 from "@/assets/product-image4.jpg";
+import  ProductImage4 from "@/assets/product-image5.jpg";
+import  ProductImage5 from "@/assets/product-image6.jpg";
+import  ProductImage6 from "@/assets/product-image7.png";
+import  ProductImage7 from "@/assets/product-image8.png";
+import  ProductImage8 from "@/assets/product-image9.png";
+import  ProductImage9 from "@/assets/product-image10.png";
 
 export const navbarLinks = [
     {
@@ -182,90 +191,90 @@ export const recentSalesData = [
 export const topProducts = [
     {
         number: 1,
-        name: "Wireless Headphones",
+        name: "Brown Sweatshirt",
         image: ProductImage,
-        description: "High-quality noise-canceling wireless headphones.",
+        description: "Cozy and stylish brown sweatshirt for all-day comfort.",
         price: 99.99,
         status: "In Stock",
         rating: 4.5,
     },
     {
         number: 2,
-        name: "Smartphone",
-        image: ProductImage,
-        description: "Latest 5G smartphone with excellent camera features.",
+        name: "Gray Blazer Jacket",
+        image: ProductImage1,
+        description: "Elegant gray blazer jacket for a polished look.",
         price: 799.99,
         status: "In Stock",
         rating: 4.7,
     },
     {
         number: 3,
-        name: "Gaming Laptop",
-        image: ProductImage,
-        description: "Powerful gaming laptop with high-end graphics.",
+        name: "White Sweatshirt",
+        image: ProductImage2,
+        description: "Soft and versatile white sweatshirt for casual wear.",
         price: 1299.99,
         status: "In Stock",
         rating: 4.8,
     },
     {
         number: 4,
-        name: "Smartwatch",
-        image: ProductImage,
-        description: "Stylish smartwatch with fitness tracking features.",
+        name: "Bread Toaster",
+        image: ProductImage3,
+        description: "Efficient bread toaster for perfectly crispy slices.",
         price: 199.99,
         status: "Out of Stock",
         rating: 4.4,
     },
     {
         number: 5,
-        name: "Bluetooth Speaker",
-        image: ProductImage,
-        description: "Portable Bluetooth speaker with deep bass sound.",
+        name: "Blender",
+        image: ProductImage4,
+        description: "Powerful blender for smoothies, soups, and more.",
         price: 59.99,
         status: "In Stock",
         rating: 4.3,
     },
     {
         number: 6,
-        name: "4K Monitor",
-        image: ProductImage,
-        description: "Ultra HD 4K monitor with stunning color accuracy.",
+        name: "Non-Stick Pan",
+        image: ProductImage5,
+        description: "Durable non-stick pan for easy cooking and cleaning.",
         price: 399.99,
         status: "In Stock",
         rating: 4.6,
     },
     {
         number: 7,
-        name: "Mechanical Keyboard",
-        image: ProductImage,
-        description: "Mechanical keyboard with customizable RGB lighting.",
+        name: "Black Thick Cover Book",
+        image: ProductImage6,
+        description: "Sturdy black thick cover book for notes and journaling.",
         price: 89.99,
         status: "In Stock",
         rating: 4.7,
     },
     {
         number: 8,
-        name: "Wireless Mouse",
-        image: ProductImage,
-        description: "Ergonomic wireless mouse with precision tracking.",
+        name: "Blue Notebook",
+        image: ProductImage7,
+        description: "Classic blue notebook for writing and organizing thoughts.",
         price: 49.99,
         status: "In Stock",
         rating: 4.5,
     },
     {
         number: 9,
-        name: "Action Camera",
-        image: ProductImage,
-        description: "Waterproof action camera with 4K video recording.",
+        name: "Spoon Set",
+        image: ProductImage8,
+        description: "Essential cooking utensils for stirring and serving.",
         price: 249.99,
         status: "In Stock",
         rating: 4.8,
     },
     {
         number: 10,
-        name: "External Hard Drive",
-        image: ProductImage,
-        description: "Portable 2TB external hard drive for data storage.",
+        name: "Whisk",
+        image: ProductImage9,
+        description: "Lightweight whisk for smooth batter and sauces.",
         price: 79.99,
         status: "Out of Stock",
         rating: 4.5,

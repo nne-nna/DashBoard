@@ -3,45 +3,45 @@ import { Settings, Bell, Lock, Palette, Globe } from "lucide-react";
 const SettingsPage = () => {
     return (
         <div className="flex flex-col gap-y-4">
-            <h1 className="title">Settings</h1>
+            <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Settings</h1>
             
-            <div className="card">
-                <div className="card-header">
+            <div className="rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+                <div className="mb-6">
                     <div className="flex items-center gap-x-3">
                         <div className="rounded-lg bg-blue-500/20 p-2 text-blue-500">
                             <Settings size={26} />
                         </div>
-                        <p className="card-title">General Settings</p>
+                        <p className="text-xl font-semibold text-slate-800 dark:text-slate-100">General Settings</p>
                     </div>
                 </div>
-                <div className="card-body">
+                <div>
                     <form className="flex flex-col gap-y-4">
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Store Name</label>
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Store Name</label>
                             <input
                                 type="text"
-                                className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
+                                className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
                                 placeholder="Enter store name"
                             />
                         </div>
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Store Email</label>
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Store Email</label>
                             <input
                                 type="email"
-                                className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
+                                className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
                                 placeholder="Enter store email"
                             />
                         </div>
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Store Address</label>
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Store Address</label>
                             <textarea
-                                className="h-32 rounded-lg border border-slate-300 p-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
+                                className="h-32 rounded-lg border border-slate-300 p-4 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
                                 placeholder="Enter store address"
                             />
                         </div>
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Currency</label>
-                            <select className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900">
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Currency</label>
+                            <select className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
                                 <option value="USD">USD ($)</option>
                                 <option value="EUR">EUR (€)</option>
                                 <option value="GBP">GBP (£)</option>
@@ -53,13 +53,13 @@ const SettingsPage = () => {
                                 id="notifications"
                                 className="h-4 w-4 rounded border-slate-300 text-blue-500 focus:ring-blue-500 dark:border-slate-700"
                             />
-                            <label htmlFor="notifications" className="text-sm font-medium">
+                            <label htmlFor="notifications" className="text-sm font-medium text-slate-700 dark:text-slate-200">
                                 Enable email notifications
                             </label>
                         </div>
                         <button
                             type="submit"
-                            className="mt-4 w-full rounded-lg bg-blue-500 py-2 font-medium text-white hover:bg-blue-600"
+                            className="mt-4 w-full rounded-lg bg-blue-500 py-2 font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                         >
                             Save Changes
                         </button>
@@ -67,20 +67,20 @@ const SettingsPage = () => {
                 </div>
             </div>
 
-            <div className="card">
-                <div className="card-header">
+            <div className="rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+                <div className="mb-6">
                     <div className="flex items-center gap-x-3">
                         <div className="rounded-lg bg-blue-500/20 p-2 text-blue-500">
                             <Bell size={26} />
                         </div>
-                        <p className="card-title">Notification Preferences</p>
+                        <p className="text-xl font-semibold text-slate-800 dark:text-slate-100">Notification Preferences</p>
                     </div>
                 </div>
-                <div className="card-body">
+                <div>
                     <div className="flex flex-col gap-y-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="font-medium">Order Updates</p>
+                                <p className="font-medium text-slate-800 dark:text-slate-100">Order Updates</p>
                                 <p className="text-sm text-slate-600 dark:text-slate-400">Receive notifications about order status changes</p>
                             </div>
                             <input
@@ -90,7 +90,7 @@ const SettingsPage = () => {
                         </div>
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="font-medium">Inventory Alerts</p>
+                                <p className="font-medium text-slate-800 dark:text-slate-100">Inventory Alerts</p>
                                 <p className="text-sm text-slate-600 dark:text-slate-400">Get notified when products are low in stock</p>
                             </div>
                             <input
@@ -102,44 +102,44 @@ const SettingsPage = () => {
                 </div>
             </div>
 
-            <div className="card">
-                <div className="card-header">
+            <div className="rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+                <div className="mb-6">
                     <div className="flex items-center gap-x-3">
                         <div className="rounded-lg bg-blue-500/20 p-2 text-blue-500">
                             <Lock size={26} />
                         </div>
-                        <p className="card-title">Security Settings</p>
+                        <p className="text-xl font-semibold text-slate-800 dark:text-slate-100">Security Settings</p>
                     </div>
                 </div>
-                <div className="card-body">
+                <div>
                     <form className="flex flex-col gap-y-4">
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Current Password</label>
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Current Password</label>
                             <input
                                 type="password"
-                                className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
+                                className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
                                 placeholder="Enter current password"
                             />
                         </div>
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">New Password</label>
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">New Password</label>
                             <input
                                 type="password"
-                                className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
+                                className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
                                 placeholder="Enter new password"
                             />
                         </div>
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Confirm New Password</label>
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Confirm New Password</label>
                             <input
                                 type="password"
-                                className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900"
+                                className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
                                 placeholder="Confirm new password"
                             />
                         </div>
                         <button
                             type="submit"
-                            className="mt-4 w-full rounded-lg bg-blue-500 py-2 font-medium text-white hover:bg-blue-600"
+                            className="mt-4 w-full rounded-lg bg-blue-500 py-2 font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                         >
                             Update Password
                         </button>
@@ -147,20 +147,20 @@ const SettingsPage = () => {
                 </div>
             </div>
 
-            <div className="card">
-                <div className="card-header">
+            <div className="rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+                <div className="mb-6">
                     <div className="flex items-center gap-x-3">
                         <div className="rounded-lg bg-blue-500/20 p-2 text-blue-500">
                             <Palette size={26} />
                         </div>
-                        <p className="card-title">Appearance</p>
+                        <p className="text-xl font-semibold text-slate-800 dark:text-slate-100">Appearance</p>
                     </div>
                 </div>
-                <div className="card-body">
+                <div>
                     <div className="flex flex-col gap-y-4">
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Theme</label>
-                            <select className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900">
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Theme</label>
+                            <select className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
                                 <option value="light">Light</option>
                                 <option value="dark">Dark</option>
                                 <option value="system">System</option>
@@ -170,20 +170,20 @@ const SettingsPage = () => {
                 </div>
             </div>
 
-            <div className="card">
-                <div className="card-header">
+            <div className="rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+                <div className="mb-6">
                     <div className="flex items-center gap-x-3">
                         <div className="rounded-lg bg-blue-500/20 p-2 text-blue-500">
                             <Globe size={26} />
                         </div>
-                        <p className="card-title">Language & Region</p>
+                        <p className="text-xl font-semibold text-slate-800 dark:text-slate-100">Language & Region</p>
                     </div>
                 </div>
-                <div className="card-body">
+                <div>
                     <div className="flex flex-col gap-y-4">
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Language</label>
-                            <select className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900">
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Language</label>
+                            <select className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
                                 <option value="en">English</option>
                                 <option value="es">Spanish</option>
                                 <option value="fr">French</option>
@@ -191,8 +191,8 @@ const SettingsPage = () => {
                             </select>
                         </div>
                         <div className="flex flex-col gap-y-2">
-                            <label className="text-sm font-medium">Time Zone</label>
-                            <select className="h-10 rounded-lg border border-slate-300 px-4 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900">
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Time Zone</label>
+                            <select className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
                                 <option value="UTC">UTC</option>
                                 <option value="EST">EST (UTC-5)</option>
                                 <option value="PST">PST (UTC-8)</option>
