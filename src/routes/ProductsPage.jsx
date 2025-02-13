@@ -1,14 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Package, PencilLine, Search, Trash } from "lucide-react";
-import { topProducts } from "../constants";
+import axios from "axios"; // Import Axios for API requests
 
 const ProductsPage = () => {
-    const [searchQuery, setSearchQuery] = useState("");
+    const [products, setProducts] = useState([]); // Store fetched products
+    const [searchQuery, setSearchQuery] = useState(""); // Store search input
+    const [loading, setLoading] = useState(true); // Loading state
 
-    const filteredProducts = topProducts.filter(product =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    // Fetch products from API
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get("https://dummyjson.com/products");
+                setProducts(response.data.products); // Store API products
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+    // Filter products based on search query
+    const filteredProducts = products.filter(product =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    if (loading) return <p className="text-center text-gray-500">Loading products...</p>;
 
     return (
         <div className="flex flex-col gap-y-4">
@@ -41,23 +62,23 @@ const ProductsPage = () => {
                                     <th className="table-head">#</th>
                                     <th className="table-head">Product</th>
                                     <th className="table-head">Price</th>
-                                    <th className="table-head">Status</th>
+                                    <th className="table-head">Stock</th>
                                     <th className="table-head">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className="table-body">
-                                {filteredProducts.map((product) => (
-                                    <tr key={product.number} className="table-row">
-                                        <td className="table-cell">{product.number}</td>
+                                {filteredProducts.map((product, index) => (
+                                    <tr key={product.id} className="table-row">
+                                        <td className="table-cell">{index + 1}</td>
                                         <td className="table-cell">
                                             <div className="flex w-max gap-x-4">
                                                 <img
-                                                    src={product.image}
-                                                    alt={product.name}
+                                                    src={product.thumbnail}
+                                                    alt={product.title}
                                                     className="size-14 rounded-lg object-cover"
                                                 />
                                                 <div className="flex flex-col">
-                                                    <p>{product.name}</p>
+                                                    <p>{product.title}</p>
                                                     <p className="font-normal text-slate-600 dark:text-slate-400">
                                                         {product.description}
                                                     </p>
@@ -65,7 +86,9 @@ const ProductsPage = () => {
                                             </div>
                                         </td>
                                         <td className="table-cell">${product.price}</td>
-                                        <td className="table-cell">{product.status}</td>
+                                        <td className="table-cell">
+                                            {product.stock > 0 ? `${product.stock} in stock` : "Out of Stock"}
+                                        </td>
                                         <td className="table-cell">
                                             <div className="flex items-center gap-x-4">
                                                 <button className="text-blue-500 dark:text-blue-600">
@@ -80,6 +103,9 @@ const ProductsPage = () => {
                                 ))}
                             </tbody>
                         </table>
+                        {filteredProducts.length === 0 && (
+                            <p className="text-center text-gray-500 mt-4">No products found.</p>
+                        )}
                     </div>
                 </div>
             </div>

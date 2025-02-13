@@ -87,7 +87,7 @@ const DashboardPage = () => {
                             data={overviewData}
                             margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
                         >
-                                                            <defs>
+                        <defs>
                                     <linearGradient
                                         id="colorTotal"
                                         x1="0"

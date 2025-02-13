@@ -1,4 +1,4 @@
-import { PackagePlus } from "lucide-react";
+import { PackagePlus, UploadCloud } from "lucide-react";
 
 const NewProductPage = () => {
     return (
@@ -43,11 +43,13 @@ const NewProductPage = () => {
                         </div>
                         <div className="flex flex-col gap-y-2">
                             <label className="text-sm font-medium text-slate-700 dark:text-slate-200">Product Image</label>
-                            <input
-                                type="file"
-                                accept="image/*"
-                                className="h-10 rounded-lg border border-slate-300 px-4 text-slate-800 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                            />
+                            <div className="flex items-center justify-center w-full h-32 rounded-lg border border-dashed border-slate-300 bg-slate-100 dark:border-slate-700 dark:bg-slate-900 cursor-pointer hover:border-blue-500 hover:bg-blue-50 dark:hover:border-blue-500 dark:hover:bg-blue-900/20">
+                                <input type="file" accept="image/*" className="hidden" id="product-image" />
+                                <label htmlFor="product-image" className="flex flex-col items-center gap-y-2 cursor-pointer text-slate-500 dark:text-slate-400">
+                                    <UploadCloud size={24} />
+                                    <span className="text-sm">Click to upload or drag and drop</span>
+                                </label>
+                            </div>
                         </div>
                         <button
                             type="submit"
