@@ -1,37 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import { Download, Filter, Printer, Share2 } from 'lucide-react';
-
-const salesData = [
-  { month: 'Jan', revenue: 4000, expenses: 2400, profit: 1600 },
-  { month: 'Feb', revenue: 3500, expenses: 2100, profit: 1400 },
-  { month: 'Mar', revenue: 5000, expenses: 2800, profit: 2200 },
-  { month: 'Apr', revenue: 4500, expenses: 2600, profit: 1900 },
-  { month: 'May', revenue: 4800, expenses: 2750, profit: 2050 },
-  { month: 'Jun', revenue: 5200, expenses: 3000, profit: 2200 },
-  { month: 'Jul', revenue: 5500, expenses: 3200, profit: 2300 },
-  { month: 'Aug', revenue: 5300, expenses: 3100, profit: 2200 },
-  { month: 'Sep', revenue: 4900, expenses: 2900, profit: 2000 },
-  { month: 'Oct', revenue: 5100, expenses: 3000, profit: 2100 },
-  { month: 'Nov', revenue: 5400, expenses: 3150, profit: 2250 },
-  { month: 'Dec', revenue: 6000, expenses: 3500, profit: 2500 }
-];
-
-const categoryData = [
-  { name: 'Electronics', value: 400 },
-  { name: 'Clothing', value: 300 },
-  { name: 'Utensils', value: 200 },
-  { name: 'Books', value: 100 },
-];
-
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+import axios from 'axios';
 
 const ReportsPage = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  // Original static sales data
+  const salesData = [
+    { month: 'Jan', revenue: 4000, expenses: 2400, profit: 1600 },
+    { month: 'Feb', revenue: 3500, expenses: 2100, profit: 1400 },
+    { month: 'Mar', revenue: 5000, expenses: 2800, profit: 2200 },
+    { month: 'Apr', revenue: 4500, expenses: 2600, profit: 1900 },
+    { month: 'May', revenue: 4800, expenses: 2750, profit: 2050 },
+    { month: 'Jun', revenue: 5200, expenses: 3000, profit: 2200 },
+    { month: 'Jul', revenue: 5500, expenses: 3200, profit: 2300 },
+    { month: 'Aug', revenue: 5300, expenses: 3100, profit: 2200 },
+    { month: 'Sep', revenue: 4900, expenses: 2900, profit: 2000 },
+    { month: 'Oct', revenue: 5100, expenses: 3000, profit: 2100 },
+    { month: 'Nov', revenue: 5400, expenses: 3150, profit: 2250 },
+    { month: 'Dec', revenue: 6000, expenses: 3500, profit: 2500 }
+  ];
+
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://dummyjson.com/products");
+        setProducts(response.data.products);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Calculate totals from sales data
   const totalRevenue = salesData.reduce((sum, item) => sum + item.revenue, 0);
   const totalExpenses = salesData.reduce((sum, item) => sum + item.expenses, 0);
   const totalProfit = salesData.reduce((sum, item) => sum + item.profit, 0);
   const profitMargin = ((totalProfit / totalRevenue) * 100).toFixed(0);
+
+  // Calculate category data from products API
+  const categoryData = !loading ? products.reduce((acc, product) => {
+    const category = product.category;
+    acc[category] = (acc[category] || 0) + product.price * product.stock;
+    return acc;
+  }, {}) : {};
+
+  const categoryChartData = Object.entries(categoryData).map(([name, value]) => ({
+    name,
+    value: Math.round(value)
+  }));
 
   return (
     <div className="flex flex-col gap-y-4 p-4">
@@ -110,7 +134,7 @@ const ReportsPage = () => {
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
-                data={categoryData}
+                data={categoryChartData}
                 cx="50%"
                 cy="50%"
                 innerRadius={60}
@@ -120,7 +144,7 @@ const ReportsPage = () => {
                 dataKey="value"
                 label
               >
-                {categoryData.map((entry, index) => (
+                {categoryChartData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
