@@ -1,18 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Package, PencilLine, Search, Trash } from "lucide-react";
-import axios from "axios"; // Import Axios for API requests
+import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useNotification } from "../contexts/NotificationContext";
+import { useSearch } from "../contexts/SearchContext";
 
 const ProductsPage = () => {
-    const [products, setProducts] = useState([]); // Store fetched products
-    const [searchQuery, setSearchQuery] = useState(""); // Store search input
-    const [loading, setLoading] = useState(true); // Loading state
+    const { addNotification } = useNotification();
+    const { highlightedProductId, highlightProduct } = useSearch();
+    const location = useLocation();
+    const navigate = useNavigate();
+    
+    const [products, setProducts] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [loading, setLoading] = useState(true);
+    
+    // Ref for scrolling to highlighted product
+    const highlightedRowRef = useRef(null);
 
     // Fetch products from API
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get("https://dummyjson.com/products");
-                setProducts(response.data.products); // Store API products
+                setProducts(response.data.products);
             } catch (error) {
                 console.error("Error fetching products:", error);
             } finally {
@@ -23,11 +34,51 @@ const ProductsPage = () => {
         fetchProducts();
     }, []);
 
+    // Handle highlighting product from search
+    useEffect(() => {
+        // Check if we have a product ID in the search params
+        const searchParams = new URLSearchParams(location.search);
+        const productId = searchParams.get('highlight');
+        
+        if (productId) {
+            // Convert to number and highlight
+            const id = parseInt(productId);
+            const timerId = highlightProduct(id);
+            
+            // Clean up the URL
+            searchParams.delete('highlight');
+            navigate({ search: searchParams.toString() }, { replace: true });
+            
+            return () => clearTimeout(timerId);
+        }
+    }, [location.search, highlightProduct, navigate]);
+
+    // Scroll to highlighted product
+    useEffect(() => {
+        if (highlightedProductId && highlightedRowRef.current) {
+            highlightedRowRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }, [highlightedProductId]);
+
     // Filter products based on search query
     const filteredProducts = products.filter(product =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    // Handle delete product
+    const handleDeleteProduct = (product) => {
+        // In a real app, you would call an API to delete the product
+        setProducts(prevProducts => 
+            prevProducts.filter(p => p.id !== product.id)
+        );
+        
+        // Add notification about deleted product
+        addNotification(`Product "${product.title}" has been deleted`);
+    };
 
     if (loading) return <p className="text-center text-gray-500">Loading products...</p>;
 
@@ -68,7 +119,11 @@ const ProductsPage = () => {
                             </thead>
                             <tbody className="table-body">
                                 {filteredProducts.map((product, index) => (
-                                    <tr key={product.id} className="table-row">
+                                    <tr 
+                                        key={product.id} 
+                                        className={`table-row ${highlightedProductId === product.id ? 'bg-blue-100 dark:bg-blue-900/30' : ''}`}
+                                        ref={highlightedProductId === product.id ? highlightedRowRef : null}
+                                    >
                                         <td className="table-cell">{index + 1}</td>
                                         <td className="table-cell">
                                             <div className="flex w-max gap-x-4">
@@ -94,7 +149,10 @@ const ProductsPage = () => {
                                                 <button className="text-blue-500 dark:text-blue-600">
                                                     <PencilLine size={20} />
                                                 </button>
-                                                <button className="text-red-500">
+                                                <button 
+                                                    className="text-red-500"
+                                                    onClick={() => handleDeleteProduct(product)}
+                                                >
                                                     <Trash size={20} />
                                                 </button>
                                             </div>

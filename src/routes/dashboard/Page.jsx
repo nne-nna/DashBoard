@@ -3,10 +3,12 @@ import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "rec
 import { useTheme } from "../../hooks/use-theme";
 import { CreditCard, DollarSign, Package, PencilLine, Star, Trash, TrendingUp, Users } from "lucide-react";
 import { Footer } from "../../layouts/Footer";
+import { useNotification } from "../../contexts/NotificationContext";
 import axios from "axios";
 
 const DashboardPage = () => {
     const { theme } = useTheme();
+    const { addNotification } = useNotification();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState({
@@ -57,6 +59,29 @@ const DashboardPage = () => {
         fetchData();
     }, []);
 
+    // Handle delete product
+    const handleDeleteProduct = (productId, productName) => {
+        // Filter out the deleted product
+        const updatedProducts = products.filter(product => product.id !== productId);
+        setProducts(updatedProducts);
+        
+        // Update stats after deletion
+        const totalProducts = updatedProducts.length;
+        const totalRevenue = updatedProducts.reduce((sum, product) => sum + (product.price * product.stock), 0);
+        const averagePrice = totalRevenue / totalProducts;
+        const totalStock = updatedProducts.reduce((sum, product) => sum + product.stock, 0);
+        
+        setStats({
+            totalProducts,
+            totalRevenue,
+            averagePrice,
+            totalStock
+        });
+        
+        // Add notification
+        addNotification(`Product "${productName}" has been deleted successfully`);
+    };
+
     if (loading) return <p className="text-center text-gray-500">Loading dashboard...</p>;
 
     // Get top rated products
@@ -65,6 +90,7 @@ const DashboardPage = () => {
         .slice(0, 5)
         .map((product, index) => ({
             number: index + 1,
+            id: product.id,
             image: product.thumbnail,
             name: product.title,
             description: product.description,
@@ -263,7 +289,10 @@ const DashboardPage = () => {
                                                 <button className="text-blue-500 dark:text-blue-600">
                                                     <PencilLine size={20} />
                                                 </button>
-                                                <button className="text-red-500">
+                                                <button 
+                                                    className="text-red-500"
+                                                    onClick={() => handleDeleteProduct(product.id, product.name)}
+                                                >
                                                     <Trash size={20} />
                                                 </button>
                                             </div>

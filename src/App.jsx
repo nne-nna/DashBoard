@@ -1,6 +1,8 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
+import { NotificationProvider } from './contexts/NotificationContext'
+import { SearchProvider } from './contexts/SearchContext'
 import Layout from './routes/Layout'
 import DashboardPage from './routes/dashboard/Page';
 import Analytics from './routes/Analytics';
@@ -13,7 +15,7 @@ import NewProductPage from './routes/NewProductPage';
 import InventoryPage from './routes/InventoryPage';
 import SettingsPage from './routes/SettingsPage';
 
-function App () {
+function App() {
   
   const router = createBrowserRouter([
     {
@@ -58,7 +60,7 @@ function App () {
         },
         {  
           path: 'settings',
-          element: < SettingsPage />
+          element: <SettingsPage />
         },
       ],
     },
@@ -66,7 +68,11 @@ function App () {
 
   return (
     <ThemeProvider storageKey='theme'>
-      <RouterProvider router={router} />
+      <NotificationProvider>
+        <SearchProvider>
+          <RouterProvider router={router} />
+        </SearchProvider>
+      </NotificationProvider>
     </ThemeProvider>
   )
 }
