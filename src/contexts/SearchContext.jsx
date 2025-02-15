@@ -25,7 +25,6 @@ export const SearchProvider = ({ children }) => {
     return timerId;
   }, []);
   
-  // Cleanup function for any active timers
   useEffect(() => {
     return () => {
       if (highlightedProductId) {

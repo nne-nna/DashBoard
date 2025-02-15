@@ -215,11 +215,12 @@ export const Header = ({ collapsed, setCollapsed }) => {
                                 <p className="font-semibold text-slate-900 dark:text-slate-100">Nancy Gold</p>
                                 <p className="text-sm text-slate-500">nancygold@mail.com</p>
                             </div>
+                            
                             <div className="p-2">
-                                <button className="flex w-full items-center gap-x-2 rounded-lg px-3 py-2 text-left text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">
+                                <Link to="/profile" className="flex w-full items-center gap-x-2 rounded-lg px-3 py-2 text-left text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">
                                     <User size={16} />
                                     Profile
-                                </button>
+                                </Link>
                                 <button className="flex w-full items-center gap-x-2 rounded-lg px-3 py-2 text-left text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">
                                     <Settings size={16} />
                                     <Link to='/settings'>Settings</Link>

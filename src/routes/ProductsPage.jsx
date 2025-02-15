@@ -15,7 +15,7 @@ const ProductsPage = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [loading, setLoading] = useState(true);
     
-    // Ref for scrolling to highlighted product
+    //scrolling to highlighted product
     const highlightedRowRef = useRef(null);
 
     // Fetch products from API
@@ -41,7 +41,7 @@ const ProductsPage = () => {
         const productId = searchParams.get('highlight');
         
         if (productId) {
-            // Convert to number and highlight
+
             const id = parseInt(productId);
             const timerId = highlightProduct(id);
             
@@ -71,7 +71,6 @@ const ProductsPage = () => {
 
     // Handle delete product
     const handleDeleteProduct = (product) => {
-        // In a real app, you would call an API to delete the product
         setProducts(prevProducts => 
             prevProducts.filter(p => p.id !== product.id)
         );

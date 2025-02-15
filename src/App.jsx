@@ -14,6 +14,7 @@ import ProductsPage from './routes/ProductsPage';
 import NewProductPage from './routes/NewProductPage';
 import InventoryPage from './routes/InventoryPage';
 import SettingsPage from './routes/SettingsPage';
+import ProfilePage from './routes/ProfilePage'
 
 function App() {
   
@@ -62,6 +63,10 @@ function App() {
           path: 'settings',
           element: <SettingsPage />
         },
+        {
+          path: 'profile',
+          element: <ProfilePage />
+        }
       ],
     },
   ]);

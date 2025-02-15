@@ -4,7 +4,7 @@ import axios from "axios"; // If using Axios
 
 const InventoryPage = () => {
     const [products, setProducts] = useState([]); // Store API products
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true);
 
     // Fetch products from API
     useEffect(() => {
@@ -93,7 +93,7 @@ const InventoryPage = () => {
     );
 };
 
-// Reusable Inventory Card Component
+//  Inventory Card Component
 const InventoryCard = ({ title, count, color }) => (
     <div className="card">
         <div className="card-header">

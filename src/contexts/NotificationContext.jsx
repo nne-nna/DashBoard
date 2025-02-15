@@ -12,7 +12,7 @@ export const useNotification = () => {
 };
 
 export const NotificationProvider = ({ children }) => {
-  // Start with an empty array of notifications
+  // Starts with an empty array of notifications
   const [notifications, setNotifications] = useState([]);
 
   const addNotification = useCallback((message) => {
